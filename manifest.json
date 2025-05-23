@@ -1,6 +1,8 @@
 {
-    "name": "Mood board Creator",
-    "description": "Create your own mood board with any image you want.",
+    "name": "Mood Board Creator",
+    "description": "Create your own mood board with any image you find on the web.",
+    "author": "Rémy Delepaule",
+    "homepage_url": "https://www.linkedin.com/in/remydelepaule",
     "version": "1.0",
     "manifest_version": 3,
     "action": {
