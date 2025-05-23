@@ -6,35 +6,80 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-primary: hsl(210, 66%, 83%);
+    --color-success: hsl(134, 46%, 68%);
+    --color-neutral: hsl(225, 6%, 25%);
+    --color-background: hsl(225, 6%, 90%);
+    --color-background-light: hsl(225, 6%, 95%);
+}
+
 body {
     width: 300px;
     min-height: 300px;
-    padding-inline: 20px;
     font-family: Arial, sans-serif;
 }
 
 header,
 footer {
     display: flex;
-    padding-block: 20px;
 }
 
 header {
     justify-content: center;
     text-align: center;
+    padding-block: 20px;
+    background: linear-gradient(rgba(38, 40, 49, 0.5), rgba(38, 40, 49, 0.5)),
+        url("./images/texture_wood.jpg") no-repeat center center;
+    background-size: cover;
+    color: var(--color-neutral);
+}
+
+main {
+    padding: 20px;
+    box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.35) inset;
+    background: url("./images/texture_wood.jpg") no-repeat center center;
+    background-size: cover;
 }
 
 footer {
     justify-content: space-between;
 }
 
-#thumbnails {
+.title {
+    color: var(--color-background);
+    line-height: 1em;
+}
+.title--primary {
+    text-transform: uppercase;
+}
+.title--secondary {
+    text-transform: lowercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8em;
+}
+
+.thumbnails {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     gap: 10px;
     height: 300px;
     overflow-y: auto;
+}
+.thumbnails::-webkit-scrollbar {
+    width: 18px;
+}
+.thumbnails::-webkit-scrollbar-thumb {
+    background: var(--color-background);
+    border-radius: 0px;
+}
+.thumbnails::-webkit-scrollbar-thumb:hover {
+    background: var(--color-background-light);
+}
+.thumbnails::-webkit-scrollbar-track {
+    background: var(--color-neutral);
+    border-radius: 0px;
 }
 
 .thumbnail {
@@ -43,22 +88,28 @@ footer {
     object-fit: cover;
     border-radius: 8px;
     cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+.thumbnail:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn {
+    width: 50%;
+    height: 100%;
     padding: 10px 20px;
     border: none;
-    border-radius: 8px;
+    font-weight: bold;
     cursor: pointer;
 }
 .btn:hover {
-    filter: brightness(0.9);
+    filter: brightness(1.1);
 }
 .btn--primary {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--color-primary);
+    color: var(--color-neutral);
 }
-.btn--secondary {
-    background-color: #6c757d;
-    color: white;
+.btn--neutral {
+    background-color: var(--color-neutral);
+    color: var(--color-background);
 }
