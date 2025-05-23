@@ -40,7 +40,7 @@ async function saveMoodBoard() {
             resolve(moodBoard);
         });
     });
-    if (!imageUrls.length) return alert("No image found.");
+    if (!imageUrls.length) console.error("No image found.");
 
     const loadImage = (url) =>
         new Promise((resolve, reject) => {
