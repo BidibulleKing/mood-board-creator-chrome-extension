@@ -108,7 +108,6 @@ footer {
 }
 .thumbnail .cross:hover {
     background-color: var(--color-danger);
-    color: var(--color-neutral);
 }
 .thumbnail img {
     width: 100px;
