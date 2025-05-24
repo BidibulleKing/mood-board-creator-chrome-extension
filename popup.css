@@ -7,11 +7,15 @@
 }
 
 :root {
-    --color-primary: hsl(210, 66%, 83%);
+    --color-primary: hsl(209, 66%, 83%);
     --color-success: hsl(134, 46%, 68%);
     --color-neutral: hsl(225, 6%, 25%);
-    --color-background: hsl(225, 6%, 90%);
+    --color-danger: hsl(352, 68%, 50%);
+    --color-background: hsl(220, 6%, 90%);
     --color-background-light: hsl(225, 6%, 95%);
+    --shadow-light: rgba(38, 40, 49, 0.15);
+    --shadow-mild: rgba(38, 40, 49, 0.35);
+    --shadow-dark: rgba(38, 40, 49, 0.5);
 }
 
 body {
@@ -29,7 +33,7 @@ header {
     justify-content: center;
     text-align: center;
     padding-block: 20px;
-    background: linear-gradient(rgba(38, 40, 49, 0.5), rgba(38, 40, 49, 0.5)),
+    background: linear-gradient(var(--shadow-dark), var(--shadow-dark)),
         url("./images/texture_wood.jpg") no-repeat center center;
     background-size: cover;
     color: var(--color-neutral);
@@ -37,7 +41,7 @@ header {
 
 main {
     padding: 20px;
-    box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.35) inset;
+    box-shadow: 0 6px 16px -2px var(--shadow-mild) inset;
     background: url("./images/texture_wood.jpg") no-repeat center center;
     background-size: cover;
 }
@@ -85,6 +89,28 @@ footer {
 }
 
 .thumbnail {
+    position: relative;
+}
+.thumbnail .cross {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px var(--shadow-light);
+    background-color: var(--color-neutral);
+    color: var(--color-background);
+    cursor: pointer;
+}
+.thumbnail .cross:hover {
+    background-color: var(--color-danger);
+    color: var(--color-neutral);
+}
+.thumbnail img {
     width: 100px;
     aspect-ratio: 16/9;
     object-fit: cover;
@@ -92,8 +118,8 @@ footer {
     cursor: pointer;
     transition: box-shadow 0.3s ease;
 }
-.thumbnail:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.thumbnail img:hover {
+    box-shadow: 0 4px 8px var(--shadow-light);
 }
 
 .btn {

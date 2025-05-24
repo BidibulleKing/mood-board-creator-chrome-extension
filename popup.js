@@ -13,13 +13,31 @@ function loadThumbnails() {
         const container = document.getElementById("thumbnails");
         container.innerHTML = "";
         moodBoard.forEach((url) => {
+            const thumbnail = document.createElement("div");
+            thumbnail.className = "thumbnail";
+
+            const cross = document.createElement("span");
+            cross.textContent = "✖";
+            cross.className = "cross";
+            cross.addEventListener("click", () => {
+                chrome.storage.local.get(["moodBoard"], function (result) {
+                    const updatedMoodBoard = result.moodBoard.filter(
+                        (item) => item !== url
+                    );
+                    chrome.storage.local.set({ moodBoard: updatedMoodBoard });
+                    loadThumbnails();
+                });
+            });
+            thumbnail.appendChild(cross);
+
             const img = document.createElement("img");
             img.src = url;
-            img.className = "thumbnail";
             img.addEventListener("click", () => {
                 window.open(url, "_blank");
             });
-            container.appendChild(img);
+            thumbnail.appendChild(img);
+
+            container.appendChild(thumbnail);
         });
     });
 }
